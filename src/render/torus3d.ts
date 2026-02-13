@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 const LOCKED_SHIP_U = 0.25;
 const LOCKED_SHIP_V = 0.0;
-const FIXED_TORUS_ROTATION_X = Math.PI * 0.5;
+const FIXED_TORUS_ROTATION_X = Math.PI * 0.5 + 0.12;
 const FIXED_TORUS_ROTATION_Y = 0;
 const TORUS_MAJOR_RADIUS = 1.2;
 const TORUS_TUBE_RADIUS = 0.66;
@@ -77,7 +77,7 @@ export function createTorusRenderer(
   scene.background = new THREE.Color('#f3eee2');
 
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-  camera.position.set(0, 1.8, 4.8);
+  camera.position.set(0, 2.3, 4.8);
   camera.lookAt(0, 0, 0);
 
   const ambient = new THREE.AmbientLight('#ffffff', 0.98);
@@ -137,7 +137,7 @@ export function createTorusRenderer(
     const distanceForWidth = boundsRadius / Math.tan(horizontalFov * 0.5);
     const fitDistance = Math.max(distanceForHeight, distanceForWidth) * 1.1;
 
-    camera.position.set(0, fitDistance * 0.42, fitDistance);
+    camera.position.set(0, fitDistance * 0.56, fitDistance);
     camera.lookAt(0, 0, 0);
   }
 

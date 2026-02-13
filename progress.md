@@ -39,3 +39,5 @@ Original prompt: Make a split-screen Torus Asteroids web app where right pane is
 - Validation re-run: lint and unit tests passing.
 - Adjusted ship invulnerability rendering from full blink-hide to pulsing translucency so restart state remains visibly active and does not look like a blank/black pane.
 - Reproduced game_over -> R restart flow via Playwright and verified ship/asteroids render immediately after restart.
+- Increased star sizes from fixed near-pixel dots to variable multi-pixel quads (`2.2..4.3`) for better visibility.
+- Star placement now draws centered quads around each star coordinate instead of top-left anchored tiny pixels.

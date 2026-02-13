@@ -6,6 +6,7 @@ interface Star {
   x: number;
   y: number;
   brightness: number;
+  size: number;
 }
 
 export interface CanvasRenderer {
@@ -29,7 +30,8 @@ function createStars(count: number): Star[] {
     stars.push({
       x: seededRandom() * WORLD_WIDTH,
       y: seededRandom() * WORLD_HEIGHT,
-      brightness: 0.3 + seededRandom() * 0.7
+      brightness: 0.55 + seededRandom() * 0.45,
+      size: 2.2 + seededRandom() * 2.1
     });
   }
   return stars;
@@ -162,7 +164,8 @@ function drawPlayfield(
 
   for (const star of stars) {
     ctx.fillStyle = `rgba(220, 230, 255, ${star.brightness})`;
-    ctx.fillRect(star.x, star.y, 1.5, 1.5);
+    const half = star.size * 0.5;
+    ctx.fillRect(star.x - half, star.y - half, star.size, star.size);
   }
 
   ctx.strokeStyle = '#f7f7f7';
